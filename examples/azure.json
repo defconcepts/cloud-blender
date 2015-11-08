@@ -1,4 +1,4 @@
-{"cloudRegion": "North Europe",
+{"cloudRegion": "northeurope",
  "subscriptionId": "",
  "azureKeyPath": "/media/sf_Shared/key.pem",
  "azureCertPath": "/media/sf_Shared/cert.pem",

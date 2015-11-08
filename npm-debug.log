@@ -4,19 +4,120 @@
 3 info using node@v0.10.37
 4 verbose node symlink /usr/bin/node
 5 verbose publish [ '.' ]
-6 error Failed to parse json
-6 error Unexpected string
-7 error File: /home/omer/cloud-blender/package.json
-8 error Failed to parse package.json data.
-8 error package.json must be actual JSON, not just JavaScript.
-8 error
-8 error This is not a bug in npm.
-8 error Tell the package author to fix their package.json file. JSON.parse
-9 error System Linux 3.8.0-44-generic
-10 error command "/usr/bin/node" "/usr/bin/npm" "publish"
-11 error cwd /home/omer/cloud-blender
-12 error node -v v0.10.37
-13 error npm -v 1.4.28
-14 error file /home/omer/cloud-blender/package.json
-15 error code EJSONPARSE
-16 verbose exit [ 1, true ]
+6 verbose cache add [ '.', null ]
+7 verbose cache add name=undefined spec="." args=[".",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: '.',
+8 verbose parsed url   path: '.',
+8 verbose parsed url   href: '.' }
+9 silly lockFile 3a52ce78- .
+10 verbose lock . /home/omer/.npm/3a52ce78-.lock
+11 verbose tar pack [ '/home/omer/.npm/cloud-blender/0.0.79/package.tgz', '.' ]
+12 verbose tarball /home/omer/.npm/cloud-blender/0.0.79/package.tgz
+13 verbose folder .
+14 info prepublish cloud-blender@0.0.79
+15 silly lockFile 1f1177db-tar tar://.
+16 verbose lock tar://. /home/omer/.npm/1f1177db-tar.lock
+17 silly lockFile 1464bc5b-cloud-blender-0-0-79-package-tgz tar:///home/omer/.npm/cloud-blender/0.0.79/package.tgz
+18 verbose lock tar:///home/omer/.npm/cloud-blender/0.0.79/package.tgz /home/omer/.npm/1464bc5b-cloud-blender-0-0-79-package-tgz.lock
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile 1f1177db-tar tar://.
+21 silly lockFile 1464bc5b-cloud-blender-0-0-79-package-tgz tar:///home/omer/.npm/cloud-blender/0.0.79/package.tgz
+22 silly lockFile 1464bc5b-cloud-blender-0-0-79-package-tgz tar:///home/omer/.npm/cloud-blender/0.0.79/package.tgz
+23 silly lockFile e49337b9-npm-cloud-blender-0-0-79-package /home/omer/.npm/cloud-blender/0.0.79/package
+24 verbose lock /home/omer/.npm/cloud-blender/0.0.79/package /home/omer/.npm/e49337b9-npm-cloud-blender-0-0-79-package.lock
+25 silly lockFile e49337b9-npm-cloud-blender-0-0-79-package /home/omer/.npm/cloud-blender/0.0.79/package
+26 silly lockFile e49337b9-npm-cloud-blender-0-0-79-package /home/omer/.npm/cloud-blender/0.0.79/package
+27 silly lockFile 3a52ce78- .
+28 silly lockFile 3a52ce78- .
+29 silly publish { name: 'cloud-blender',
+29 silly publish   description: 'A high level library for cloud compute operations',
+29 silly publish   version: '0.0.79',
+29 silly publish   dependencies:
+29 silly publish    { request: '2.52.0',
+29 silly publish      underscore: '1.4.3',
+29 silly publish      crypto: '0.0.3',
+29 silly publish      xml2js: '0.2.6',
+29 silly publish      'azure-storage': '0.4.1',
+29 silly publish      async: '1.1.0' },
+29 silly publish   devDependencies: { mocha: '1.6.0', should: '1.2.0' },
+29 silly publish   scripts:
+29 silly publish    { test: 'node_modules/mocha/bin/mocha -R spec -r should test/cloud.js',
+29 silly publish      'test-atomic-hpcs': 'node_modules/mocha/bin/mocha -R spec -r should test/hpcs_compute.js',
+29 silly publish      'test-atomic-hpcs_13_5': 'node_modules/mocha/bin/mocha -R spec -r should test/hpcs_compute_13_5.js',
+29 silly publish      'test-atomic-aws': 'node_modules/mocha/bin/mocha -R spec -r should test/aws_ec2.js',
+29 silly publish      'test-atomic-rackspace': 'node_modules/mocha/bin/mocha -R spec -r should test/rackspace.js' },
+29 silly publish   keywords:
+29 silly publish    [ 'cloud',
+29 silly publish      'aws',
+29 silly publish      'ec2',
+29 silly publish      'hpcs',
+29 silly publish      'helion',
+29 silly publish      'azure',
+29 silly publish      'compute',
+29 silly publish      'cross-platform',
+29 silly publish      'rackspace' ],
+29 silly publish   main: 'index.js',
+29 silly publish   directories: { doc: 'docs', example: 'examples', test: 'test' },
+29 silly publish   repository:
+29 silly publish    { type: 'git',
+29 silly publish      url: 'https://github.com/HPSoftware/cloud-blender.git' },
+29 silly publish   license: 'MIT',
+29 silly publish   bugs: { url: 'https://github.com/HPSoftware/cloud-blender/issues' },
+29 silly publish   homepage: 'https://github.com/HPSoftware/cloud-blender',
+29 silly publish   readme: '# Cloud Blender\nA high level node library for cloud compute operations that abstracts away differences among multiple cloud providers.\n\n## Installing\n<pre><code>\nnpm install cloud-blender\n</code></pre>\n\n## Overview\nCloud Blender provides a unified way to work with multiple cloud vendor\'s compute service.\nCloud Blender works in a real asynchronous manner by having the callbacks called only after all the operations of a single function are \ncompleted and not when they accepted.\nYou provide generic inputs to every function regardless of the cloud provider. In addition, you can provide cloud specific inputs to use \nfunctionality provided by that cloud vendor. \nThe output of the functions consists of unified result and the original raw result from the cloud provider (converted to JSON). \nThis design ensures that if you are not passing specific inputs and not using the raw results, your code is 100% cross platform. \nYou can still accomplish cross platform functionality if you use raw results and are passing vendor specific parameters, \nhowever, you must verify it.\n\n## Basic Use Case\nExample of retrieving all the nodes in a region:\n\n```javascript\nvar cloud = require(\'cloud-blender\'),\n   settings = {\n      // This is for demo purposes only! Your credentials should not \n      // be hard coded, instead consider loading them from your environment\n      // or from a secured file.\n      // Information on how to obtain hp access, secret, tenant id, region and az\n      // can be found in https://blog.hpcloud.com/using-hp-cloud-identity-service\n      regionContext: cloud.createRegionContext(\'hpcs_13_5\', {\n            "accessKey": "<your hpcs access key>", \n            "secretKey": "<your hpcs secret key>", \n            "tenantId": "<your hpcs tenant id>",\n            "region": "region-a.geo-1", // hpcs uswest\n            "availabilityZone": "az-2"  // hpcs uswest - az2\n       })\n   };\n\ncloud.listNodes(settings, function(error, result) {\n   if (error) {\n      console.log(\'error in getting nodes list, details:\', error);\n   }\n   else {\n      //result.nodes will contain the same fields regardless the cloud provider\n      //result.rawResult will contain the original result from the cloud provider\n      console.log(\'successfully retrieved nodes list\', result.nodes);\n   }\n});\n```\n\n## Advanced Use Case\nExample of creating multiple nodes with different configurations in the same\nprovisioning request. Note that **Cloud Blender** allows the \nflexibility to create different configurations such as tags\n and different instance type in the same call. Note that the region post rate is non standard.\n\n```javascript\nvar cloud = require(\'cloud-blender\'),\n   settings = {\n         \n      // This is for demo purposes only! Your credentials should not \n      // be hard coded, instead consider load them from your envirenmet\n      // or from a secured file.\n      // Information on how to obtain aws access and secret can be found \n      // in:  http://docs.aws.amazon.com/fws/1.1/GettingStartedGuide/index.html?AWSCredentials.html\n      regionContext: cloud.createRegionContext(\'aws\', {\n            "accessKey": "<your aws access key>", \n            "secretKey": "<your aws secret key>", \n            "region": "us-east-1", \n         }, { postRatePerMinute: 200}),\n         nodes: [ // notice that we use multiple configurations in the same request\n            {\n               imageId: \'ami-d0f89fb9\', // public ubuntu 12.04 i686 on aws east-1 \n               instanceType: \'t1.micro\'\n               tags: {\n                  logicName: \'machine1\'\n               }\n            },\n            {\n               imageId: \'ami-d0f89fb9\', \n               instanceType: \'m1.large\'\n               tags: {\n                  logicName: \'machine2\'\n               }\n            }]\n      };\n\n   cloud.createNodes(settings, function(error, result) {\n      if (error) {\n         console.log(\'error in create nodes, details:\', error);\n      }\n      else {\n         //note that all nodes are currently in ACTIVE state\n         //result.nodes will contain the same fields regardless the cloud provider\n         //result.rawResult will contain the original result from the cloud provider\n         console.log(\'successfully created nodes\', result.nodes);\n      }\n   });\n```\n\n\n## Current Cloud Providers Support\nThe current version supports **HP Helion (both 12.12 and 13.5 versions)**, **Rackspace**, **Azure** and **AWS-EC2**.\n\n\n## Current Version Supported Operations\nThe current version supports the following operations:\n\n- [createNodes](./docs/Reference.md#createNodes)\n- [listNodes](./docs/Reference.md#listNodes)\n- [deleteNodes](./docs/Reference.md#deleteNodes)\n- [createImage](./docs/Reference.md#createImage)\n- [listImages](./docs/Reference.md#listImages)\n- [deleteImage](./docs/Reference.md#deleteImage)\n\n## Contributions Welcome\nWe welcome contributions from the community and are pleased to have them.\nFor bugs, enhancement requests and comments please open us issues.\nFor code contribution please fork and ask for pull request:\nPlease make sure you follow our coding style and that the tests are green.\nMake sure not to include your tenant credentials in the source code.\n\n## Running Tests\nThere are two types of tests:\n\n   - Remote: The majority of the validation tests are remote tests. These tests access real cloud services and you will incur a cost to run them.\n   - Local: There are a few validation tests that are local test. These tests are free.\n\n### How to Run a Test\n\n   - By default, only local test are running. If you want to enable remote tests set the EXEC_CLOUD_TESTS environment variable to true. \n      You can also setup a proxy by setting the environment variable TUNNELING_PROXY to your proxy.\n   - The tests are run on HPCS US-West-AZ2 and AWS-USEast-1. We hard coded certain properties of these regions. \n      You will need to create two configuration files in which include your credentials.\n\n      - ./examples/hpcs_uswest_az2.json for HPCS US-West-AZ2 credentials.\n      - ./examples/aws_east_1.json for AWS US-EAST-1 credentials.\n\n   These JSONs are used as inputs to the ``createRegionContext`` function. For example, ./examples/config_example.json\n   Please also create a key pair on each region and hard code it in the test files, where\n   keyName is used.\n\n   - To run the acutual tests:\n```\nnpm run test # Tests public API\nnpm run test-atomic-hpcs # Tests HPCS-Compute atomic module\nnpm run test-atomic-aws # Tests AWS-EC2 atomic lib\n``` \n\n## Additional Information\n- For the **latest updates** follow [@CloudBlender](https://twitter.com/CloudBlender) (coming soon).\n- [API reference](/projects/TCS/repos/mutlicloud/browse/docs/Reference.md)\n- For **issues or questions**, please open an issue or ask in twitter.\n\n\n',
+29 silly publish   readmeFilename: 'README.md',
+29 silly publish   gitHead: 'e22ab6c1002cfe67f51f6f9a9091e212513b78f8',
+29 silly publish   _id: 'cloud-blender@0.0.79',
+29 silly publish   _shasum: 'd4909d08db7a77f24946fbc2cdf4cb8d5150d549',
+29 silly publish   _from: '.' }
+30 verbose request where is /cloud-blender
+31 verbose request registry http://registry.npmjs.org/
+32 verbose request id f2a80468b669d07a
+33 verbose url raw /cloud-blender
+34 verbose url resolving [ 'http://registry.npmjs.org/', './cloud-blender' ]
+35 verbose url resolved http://registry.npmjs.org/cloud-blender
+36 verbose request where is http://registry.npmjs.org/cloud-blender
+37 info trying registry request attempt 1 at 00:32:24
+38 http PUT http://registry.npmjs.org/cloud-blender
+39 http 403 http://registry.npmjs.org/cloud-blender
+40 verbose headers { 'content-type': 'application/json',
+40 verbose headers   'content-length': '96',
+40 verbose headers   'accept-ranges': 'bytes',
+40 verbose headers   date: 'Fri, 30 Oct 2015 22:32:29 GMT',
+40 verbose headers   via: '1.1 varnish',
+40 verbose headers   'x-served-by': 'cache-ord1734-ORD',
+40 verbose headers   'x-cache': 'MISS',
+40 verbose headers   'x-cache-hits': '0',
+40 verbose headers   'x-timer': 'S1446244346.431975,VS0,VE3168',
+40 verbose headers   'cache-control': 'max-age=60, proxy-revalidate',
+40 verbose headers   connection: 'Keep-Alive' }
+41 error publish Failed PUT 403
+42 error Error: "You cannot publish over the previously published version 0.0.79." : cloud-blender
+42 error     at RegClient.<anonymous> (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:308:14)
+42 error     at Request._callback (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:246:65)
+42 error     at Request.self.callback (/usr/lib/node_modules/npm/node_modules/request/request.js:236:22)
+42 error     at Request.emit (events.js:98:17)
+42 error     at Request.<anonymous> (/usr/lib/node_modules/npm/node_modules/request/request.js:1142:14)
+42 error     at Request.emit (events.js:117:20)
+42 error     at IncomingMessage.<anonymous> (/usr/lib/node_modules/npm/node_modules/request/request.js:1096:12)
+42 error     at IncomingMessage.emit (events.js:117:20)
+42 error     at _stream_readable.js:944:16
+42 error     at process._tickCallback (node.js:448:13)
+43 error If you need help, you may report this *entire* log,
+43 error including the npm and node versions, at:
+43 error     <http://github.com/npm/npm/issues>
+44 error System Linux 3.8.0-44-generic
+45 error command "/usr/bin/node" "/usr/bin/npm" "publish"
+46 error cwd /home/omer/cloud-blender
+47 error node -v v0.10.37
+48 error npm -v 1.4.28
+49 verbose exit [ 1, true ]
