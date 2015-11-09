@@ -1,7 +1,7 @@
 {
   "name": "cloud-blender",
   "description": "A high level library for cloud compute operations",
-  "version": "0.0.79",
+  "version": "0.0.80",
   "dependencies": {
     "request": "2.52.0",
     "underscore": "1.4.3",
