@@ -39,8 +39,8 @@ describe('checking azure atomic lib', function () {
          settingsCreate = {
             regionContext: regionContext,
             nodeParams: {
-               imageId: '',
-               instanceType: 'Standard_D3',
+               imageId: 'VM5_img-osDisk.d550bcbc-9a2c-4c15-941c-41afaf9c1ad7.vhd',
+               instanceType: 'Standard_A0',
                tags: {
                   jobId: 'dummyJobId',
                   env: 'test',
@@ -63,8 +63,7 @@ describe('checking azure atomic lib', function () {
 
 
                should.not.exist(error1);
-
-
+               done();
 
 
             });
