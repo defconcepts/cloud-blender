@@ -10,7 +10,8 @@ compute.setProxy('http://web-proxy.isr.hp.com:8080');
 
 var providerName = 'azure_v2',
    regionAuthSettings = azureConfig,
-   regionLimits = {};
+   regionLimits = {},
+   node1;
 
 
 var regionContext = compute.createRegionContext(regionAuthSettings, regionLimits);
@@ -19,7 +20,7 @@ var regionContext = compute.createRegionContext(regionAuthSettings, regionLimits
 describe('checking azure local atomic lib', function () {
 
 
-  /* it('should create an authentication context', function () {
+   it('should create an authentication context', function () {
 
       var regionContext = compute.createRegionContext(regionAuthSettings, regionLimits);
       should.exist(regionContext.cloudRegion);
@@ -62,13 +63,14 @@ describe('checking azure atomic lib', function () {
             return;
          }
 
+         node1 = result1.node;
 
          should.not.exist(error1);
          done();
 
 
       });
-   }); */
+   });
 
 
    it('should get a list of nodes from azure and find the  node which was created', function (done) {
@@ -88,10 +90,71 @@ describe('checking azure atomic lib', function () {
             return;
          }
 
-         console.log('result-'+JSON.stringify(result))
-
+         console.log('result-' + JSON.stringify(result))
+         should.not.exist(error);
+         done();
 
       });
 
    });
+
+   it('should get a list of nodes from azure and find the  node which was created', function (done) {
+      var waitInterval = 1000 * 120,
+         settings = {
+            regionContext: regionContext
+         };
+
+      this.timeout(waitInterval);
+
+
+      compute.listNodes(settings, function (error, result) {
+
+         if (error) {
+            console.log('error get node list-' + error);
+            done();
+            return;
+         }
+
+         console.log('result-' + JSON.stringify(result))
+         should.not.exist(error);
+         done();
+
+      });
+
+   });
+
+
+   it('should delete instance from azure', function (done) {
+      var waitInterval = 1000 * 30;
+
+      this.timeout(1000 * 340);
+
+
+      setTimeout(function () {
+
+
+         var
+            settingsDelete = {
+               regionContext: regionContext,
+               node: node1
+
+            };
+
+         console.log(settingsDelete.node.id+'- will be deleted')
+
+         compute.deleteNode(settingsDelete, function (error, result) {
+            if (error) {
+               console.log('error delete node-' + error);
+               done();
+               return;
+            }
+
+            done();
+
+         });
+
+      },waitInterval);
+   });
+
+
 });
