@@ -1,9 +1,0 @@
-{  "subscriptionId":"c0215d57-74d8-40a2-8eaf-d86ddee2246b",
-   "cloudRegion": "North Europe",
-   "groupId" : "group1",
-   "tenantId" : "fd0bb1e1-0b65-4679-9f30-d67993ae0fd4",
-   "clientId" : "2274f26a-82bb-4da6-830d-b29045ad58d2",
-   "secret" : "jnu6RW5aqYH7jQsGSODE05h7qsAwa6ngZmgeYQxE5g0=",
-   "imagesContainer": "https://group19133.blob.core.windows.net/system/Microsoft.Compute/Images/images/",
-   "vhdsContainer":"https://group19133.blob.core.windows.net/vhds/"
-}
