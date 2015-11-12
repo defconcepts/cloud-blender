@@ -43,6 +43,7 @@ describe('checking azure atomic lib', function () {
          nodeParams: {
             imageId: 'VM5_img-osDisk.d550bcbc-9a2c-4c15-941c-41afaf9c1ad7.vhd',
             instanceType: 'Standard_A0',
+            securityGroup: 'test1234',
             tags: {
                jobId: 'dummyJobId',
                env: 'test',
@@ -123,7 +124,7 @@ describe('checking azure atomic lib', function () {
 
    });
 
-
+  /*
    it('should delete instance from azure', function (done) {
       var waitInterval = 1000 * 30;
 
@@ -154,7 +155,7 @@ describe('checking azure atomic lib', function () {
          });
 
       },waitInterval);
-   });
+   });          */
 
 
 });
