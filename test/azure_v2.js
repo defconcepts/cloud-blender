@@ -124,6 +124,41 @@ describe('checking azure atomic lib', function () {
 
    });
 
+   it('should create image from the first node which was created', function (done) {
+      var waitInterval = 1000*45,
+         settingsList = {
+            regionContext: regionContext
+
+         };
+      this.timeout(1000*500);
+
+      setTimeout(function () {
+
+         var settingsImage = {
+            regionContext: regionContext,
+            imageParams: {
+               nodeId: node1.id,
+               tags: {
+                  'creationDate': new Date(),
+                  'createdFor': 'test purposes',
+                  'logicName': 'dummy-image'
+               },
+               vendorSpecificParams: {
+                  Description: 'blah blah blah created by a dummy test'
+               }
+            }
+         };
+
+         compute.createImage(settingsImage, function (error, resultImage) {
+
+            if (error) {
+               console.log('error create image-' + error);
+               done();
+               return;
+            }
+         });
+      },waitInterval)
+   });
   /*
    it('should delete instance from azure', function (done) {
       var waitInterval = 1000 * 30;
